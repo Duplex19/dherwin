@@ -9,7 +9,8 @@ $albums = query("SELECT * FROM album");
 
 <!doctype html>
 <html lang="en" data-bs-theme="auto">
-  <head><script src="assets/js/color-modes.js"></script>
+  <head>
+    <script src="assets/js/color-modes.js"></script>
 
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -18,15 +19,14 @@ $albums = query("SELECT * FROM album");
     <meta name="generator" content="Hugo 0.111.3">
     <title>Album example · Bootstrap v5.3</title>
 
-    <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/album/">
+    <!-- <link rel="canonical" href="https://getbootstrap.com/docs/5.3/examples/album/"> -->
+
+
 
     
 
-    
-
-<link href="assets/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <style>
+<link rel="stylesheet" href="assets/dist/css/bootstrap.min.css" >
+    <!-- <style>
       .bd-placeholder-img {
         font-size: 1.125rem;
         text-anchor: middle;
@@ -98,11 +98,9 @@ $albums = query("SELECT * FROM album");
       .bd-mode-toggle {
         z-index: 1500;
       }
-    </style>
+    </style> -->
 
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-    
+
   </head>
   <body>
     <!-- <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
@@ -208,48 +206,64 @@ $albums = query("SELECT * FROM album");
     <div class="container">
 
       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+      <?php $i=0; ?>
 <?php foreach($albums as $album): ?>
+
         <div class="col">
           <div class="card shadow-sm">
             <img class="bd-placeholder-img card-img-top" width="100%" height="325" src="img/<?= $album["image"] ?>" alt="">
             <!-- <svg class="bd-placeholder-img card-img-top" width="100%" height="225" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"/><text x="50%" y="50%" fill="#eceeef" dy=".3em">Thumbnail</text></svg> -->
             <div class="card-body">
+              <p class="card-text fw-bold fs-5">
+                <?= $album["name"]; ?>
+</p>
               <p class="card-text">
                 <?= $album["story"]; ?>
               </p>
               <div class="d-flex justify-content-between align-items-center">
                 <div class="btn-group">
-                  <button type="button" class="btn btn-sm btn-outline-secondary" data-toggle="modal" data-target="#modal_first">View</button>
-                  <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-
+                  <!-- <form action="" method="post"> -->
+                  <button type="button"  class="btn btn-sm btn-outline-secondary" data-bs-toggle="modal" data-toggle="modal" data-bs-target="#modal_first<?= $album["id"];?>"
+                  
+                  >View</button>
+                       
+<div class="modal fade" id="modal_first<?= $album["id"];?>" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal-dialog modal-dialog-scrollable">
+<div class="modal-content">
+<div class="modal-header bg-secondary">
+<h1 class="modal-title fs-5" id="exampleModalLabel"><?= $album["name"]; ?></h1>
+<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+</div>
+<div class="modal-body">
+<img width="90%" src="img/<?= $album["image"]?>" alt="">
+<p><?= $album["story"]; ?></p>
+</div>
+<div class="modal-footer">
+<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+<!-- <button type="button" class="btn btn-primary">Save changes</button> -->
+</div>
+</div>
+</div>
+</div>
+                  <!-- <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button> -->
+                  <!-- </form> -->
                 </div>
                 <small class="text-body-secondary">9 mins</small>
               </div>
             </div>
           </div>
         </div>
-
-        <div class="modal fade" id="modal_first" role="dialog">
-    <div class="modal-dialog">
     
-      <!-- Modal content-->
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal">&times;</button>
-          <h4 class="modal-title">Modal Header</h4>
-        </div>
-        <div class="modal-body">
-          <p>Some text in the modal.</p>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        </div>
-      </div>
       
-    </div>
-  </div>
         <?php endforeach; ?>
+       
+ 
+  <!-- Button trigger modal -->
+<!-- <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  Launch demo modal
+</button> -->
 
+<!-- Modal -->
 
         <!-- <div class="modal modal-sheet position-static d-block bg-body-secondary p-4 py-md-5" tabindex="-1" role="dialog" id="modal_first">
   <div class="modal-dialog" role="document">
@@ -420,7 +434,7 @@ $albums = query("SELECT * FROM album");
 
 </main>
 
-<footer class="text-body-secondary fixed-bottom py-5">
+<footer class="text-body-secondary  py-5">
   <div class="container">
     <p class="float-end mb-5">
     <button type="button" class="btn btn-dark">
@@ -438,7 +452,8 @@ Back to top
 
 
     <script src="assets/dist/js/bootstrap.bundle.min.js"></script>
-
-      
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
   </body>
+
 </html>

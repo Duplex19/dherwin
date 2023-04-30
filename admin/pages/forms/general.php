@@ -5,6 +5,8 @@ require '../../../functions/functions.php';
 
 
 if (isset($_POST["submit"])) {
+
+
   if(tambah($_POST) > 0 ){
     echo  <<<GFG
           <div class="alert alert-success" role="alert">
@@ -360,7 +362,7 @@ GFG;
                   </div>
                   <!-- /.card-header -->
                   <!-- form start -->
-                  <form action="" method="post">
+                  <form action="" method="post" enctype="multipart/form-data">
                     <div class="card-body">
                       <div class="form-group">
                         <label for="exampleInputEmail1">Event Name</label>
