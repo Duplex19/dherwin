@@ -235,7 +235,7 @@ $albums = query("SELECT * FROM album");
 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
 </div>
 <div class="modal-body">
-<img width="90%" src="img/<?= $album["image"]?>" alt="">
+<img width="100%" src="img/<?= $album["image"]?>" alt="">
 <p><?= $album["story"]; ?></p>
 </div>
 <div class="modal-footer">

@@ -80,8 +80,31 @@ return false;
 
   
 
+    
         move_uploaded_file($fileTmp, '../../../img/'.$newfilename);
     return $newfilename;
 }
 
+
+function edit($data){
+
+    global $link;
+
+    $id = $data["id"];
+    $name = htmlspecialchars($data["judul"]);
+    $story = htmlspecialchars($data["story"]);
+    $image = htmlspecialchars($data["foto"]);
+
+    $input = "UPDATE album SET
+            name = '$name',
+            story = '$story',
+            image = '$image',
+            WHERE id = $id ";
+            // var_dump($data);
+            // die;
+
+ mysqli_query($link, $input);
+
+ return mysqli_affected_rows($link);
+}
 ?>
