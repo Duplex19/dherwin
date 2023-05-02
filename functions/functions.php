@@ -78,13 +78,9 @@ return false;
     $newfilename .= ".";
     $newfilename .= $extensi;
 
-  
-
-    
         move_uploaded_file($fileTmp, '../../../img/'.$newfilename);
     return $newfilename;
 }
-
 
 function edit($data){
 
@@ -95,15 +91,17 @@ function edit($data){
     $story = htmlspecialchars($data["story"]);
     $image = htmlspecialchars($data["foto"]);
 
-    $input = "UPDATE album SET
-            name = '$name',
-            story = '$story',
-            image = '$image',
-            WHERE id = $id ";
-            // var_dump($data);
-            // die;
+   $input1 = "UPDATE album set 
+                name = '$name',
+                story = '$story',
+                WHERE id = '$id'";
+             
+var_dump($input1);
+die;
 
- mysqli_query($link, $input);
+mysqli_query($link, $input1);
+//  var_dump(mysqli_affected_rows($link));
+
 
  return mysqli_affected_rows($link);
 }

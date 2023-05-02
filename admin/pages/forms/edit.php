@@ -4,14 +4,17 @@
 require '../../../functions/functions.php';
 
 $id = $_GET["id"];
-$albums = query("SELECT * FROM album WHERE id = $id")[0];
-// var_dump($albums);
-if(isset($_POST["submit"])){
+
+$album = query("SELECT * FROM album WHERE id = $id")[0];
+
+if(isset($_POST["edit"])){
+
   if(edit($_POST) > 0 ){
     echo  "ok";
-  } else {
-  echo "no";
-}
+  } 
+  else {
+    echo "no";
+  }
 }
 
 ?>
@@ -357,7 +360,8 @@ if(isset($_POST["submit"])){
                   <form action="" method="post" enctype="multipart/form-data">
                     <div class="card-body">
                       <div class="form-group">
-                        <input type="hidden" name="id" value="<?= $albums["id"]; ?>">
+                        <input type="hidden" name="id" value="<?= $album["id"]; ?>">
+
                         <label for="exampleInputEmail1">Event Name</label>
                         <input
                           type="text"
@@ -365,7 +369,7 @@ if(isset($_POST["submit"])){
                           id="exampleInputEmail1"
                           placeholder="Event Name"
                           name="judul"
-                          value="<?= $albums["name"]; ?>"
+                          value="<?= $album["name"]; ?>"
                         />
                       </div>
                       <div class="form-group">
@@ -376,7 +380,7 @@ if(isset($_POST["submit"])){
                           id="exampleInputPassword1"
                           placeholder="Story"
                           name="story"
-                          value="<?= $albums["story"]; ?>"
+                          value="<?= $album["story"]; ?>"
                         />
                       </div>
                       <div class="form-group">
@@ -388,7 +392,7 @@ if(isset($_POST["submit"])){
                               class="custom-file-input"
                               id="exampleInputFile"
                               name="foto"
-                              value="<?= $albums["image"]; ?>"
+                              value="<?= $album["image"]; ?>"
                             />
                   
                             <label
@@ -416,7 +420,7 @@ if(isset($_POST["submit"])){
                     <!-- /.card-body -->
 
                     <div class="card-footer">
-                      <button type="submit" name="submit" class="btn btn-primary">
+                      <button type="submit" name="edit" class="btn btn-primary">
                         Submit
                       </button>
                     </div>
