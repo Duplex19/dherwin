@@ -89,20 +89,37 @@ function edit($data){
     $id = $data["id"];
     $name = htmlspecialchars($data["judul"]);
     $story = htmlspecialchars($data["story"]);
-    $image = htmlspecialchars($data["foto"]);
+    $old_image = $data["old_image"];
 
-   $input1 = "UPDATE album set 
+
+    if ($_FILES["foto"]["error"] === 4) {
+        $image = $old_image;
+    }
+   else {
+    $image = upload();
+   }
+
+
+   $input1 = "UPDATE album SET 
                 name = '$name',
-                story = '$story',
+                image = '$image',
+                story = '$story'
                 WHERE id = '$id'";
-             
-var_dump($input1);
-die;
+       
 
 mysqli_query($link, $input1);
-//  var_dump(mysqli_affected_rows($link));
-
 
  return mysqli_affected_rows($link);
+}
+
+
+function delete($id){
+    global $link;
+
+    // var_dump($id);
+    // die;
+    mysqli_query($link, "DELETE FROM album WHERE id = $id");
+
+    return mysqli_affected_rows($link);
 }
 ?>

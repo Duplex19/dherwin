@@ -106,12 +106,14 @@ $albums = query("SELECT * FROM album ");
                 </div>
                 <div>
                   <div class="filter-container p-0 row " >
+                    <?php $i=1; ?>
                       <?php foreach($albums as $album): ?>
-                              <div class="filtr-item col-sm-2" data-category="1" data-sort="white sample">
+                              <div class="filtr-item col-sm-2" data-category="<?=  $i; ?>" data-sort="<?=  $i; ?>">
                                 <a href="img/<?= $album["image"]; ?>" data-toggle="lightbox" data-title="<?= $album["name"]; ?>" data-gallery="gallery" >
                                   <img src="img/<?= $album["image"]?>" style="max-height:230px; min-height:230px;" class="img-fluid mb-2" alt="<?= $album["name"]; ?>"/>
                                 </a>    
                               </div>
+                              <?php $i++; ?>
                       <?php endforeach; ?>
                   </div>              
                 </div>

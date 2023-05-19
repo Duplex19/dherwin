@@ -50,11 +50,18 @@ $albums = query("SELECT * FROM album");
     <link rel="stylesheet" href="plugins/daterangepicker/daterangepicker.css" />
     <!-- summernote -->
     <link rel="stylesheet" href="plugins/summernote/summernote-bs4.min.css" />
+    <!-- feather icon -->
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+  <!-- sweet allert -->
+  <script src="../sweetallert/dist/sweetalert2.all.min.js"></script>
+    <link rel="stylesheet" href="../sweetallert/dist/sweetalert2.min.css">
   </head>
-  <body class="hold-transition sidebar-mini layout-fixed">
+  <body >
+       
+    
     <div class="wrapper">
       <!-- Preloader -->
-      <div
+      <!-- <div
         class="preloader flex-column justify-content-center align-items-center"
       >
         <img
@@ -64,22 +71,18 @@ $albums = query("SELECT * FROM album");
           height="60"
           width="60"
         />
-      </div>
+      </div> -->
 
       <!-- Navbar -->
+
+</script>
       <nav class="main-header navbar navbar-expand navbar-white navbar-light">
         <!-- Left navbar links -->
         <ul class="navbar-nav">
-          <li class="nav-item">
-            <a class="nav-link" data-widget="pushmenu" href="#" role="button"
+        <li class="nav-item">
+            <a class="nav-link" data-widget="pushmenu" href="" role="button"
               ><i class="fas fa-bars"></i
             ></a>
-          </li>
-          <li class="nav-item d-none d-sm-inline-block">
-            <a href="index3.html" class="nav-link">Home</a>
-          </li>
-          <li class="nav-item d-none d-sm-inline-block">
-            <a href="#" class="nav-link">Contact</a>
           </li>
         </ul>
 
@@ -122,120 +125,9 @@ $albums = query("SELECT * FROM album");
           </li>
 
           <!-- Messages Dropdown Menu -->
-          <li class="nav-item dropdown">
-            <a class="nav-link" data-toggle="dropdown" href="#">
-              <i class="far fa-comments"></i>
-              <span class="badge badge-danger navbar-badge">3</span>
-            </a>
-            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-              <a href="#" class="dropdown-item">
-                <!-- Message Start -->
-                <div class="media">
-                  <img
-                    src="dist/img/user1-128x128.jpg"
-                    alt="User Avatar"
-                    class="img-size-50 mr-3 img-circle"
-                  />
-                  <div class="media-body">
-                    <h3 class="dropdown-item-title">
-                      Brad Diesel
-                      <span class="float-right text-sm text-danger"
-                        ><i class="fas fa-star"></i
-                      ></span>
-                    </h3>
-                    <p class="text-sm">Call me whenever you can...</p>
-                    <p class="text-sm text-muted">
-                      <i class="far fa-clock mr-1"></i> 4 Hours Ago
-                    </p>
-                  </div>
-                </div>
-                <!-- Message End -->
-              </a>
-              <div class="dropdown-divider"></div>
-              <a href="#" class="dropdown-item">
-                <!-- Message Start -->
-                <div class="media">
-                  <img
-                    src="dist/img/user8-128x128.jpg"
-                    alt="User Avatar"
-                    class="img-size-50 img-circle mr-3"
-                  />
-                  <div class="media-body">
-                    <h3 class="dropdown-item-title">
-                      John Pierce
-                      <span class="float-right text-sm text-muted"
-                        ><i class="fas fa-star"></i
-                      ></span>
-                    </h3>
-                    <p class="text-sm">I got your message bro</p>
-                    <p class="text-sm text-muted">
-                      <i class="far fa-clock mr-1"></i> 4 Hours Ago
-                    </p>
-                  </div>
-                </div>
-                <!-- Message End -->
-              </a>
-              <div class="dropdown-divider"></div>
-              <a href="#" class="dropdown-item">
-                <!-- Message Start -->
-                <div class="media">
-                  <img
-                    src="dist/img/user3-128x128.jpg"
-                    alt="User Avatar"
-                    class="img-size-50 img-circle mr-3"
-                  />
-                  <div class="media-body">
-                    <h3 class="dropdown-item-title">
-                      Nora Silvester
-                      <span class="float-right text-sm text-warning"
-                        ><i class="fas fa-star"></i
-                      ></span>
-                    </h3>
-                    <p class="text-sm">The subject goes here</p>
-                    <p class="text-sm text-muted">
-                      <i class="far fa-clock mr-1"></i> 4 Hours Ago
-                    </p>
-                  </div>
-                </div>
-                <!-- Message End -->
-              </a>
-              <div class="dropdown-divider"></div>
-              <a href="#" class="dropdown-item dropdown-footer"
-                >See All Messages</a
-              >
-            </div>
-          </li>
+      
           <!-- Notifications Dropdown Menu -->
-          <li class="nav-item dropdown">
-            <a class="nav-link" data-toggle="dropdown" href="#">
-              <i class="far fa-bell"></i>
-              <span class="badge badge-warning navbar-badge">15</span>
-            </a>
-            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-              <span class="dropdown-item dropdown-header"
-                >15 Notifications</span
-              >
-              <div class="dropdown-divider"></div>
-              <a href="#" class="dropdown-item">
-                <i class="fas fa-envelope mr-2"></i> 4 new messages
-                <span class="float-right text-muted text-sm">3 mins</span>
-              </a>
-              <div class="dropdown-divider"></div>
-              <a href="#" class="dropdown-item">
-                <i class="fas fa-users mr-2"></i> 8 friend requests
-                <span class="float-right text-muted text-sm">12 hours</span>
-              </a>
-              <div class="dropdown-divider"></div>
-              <a href="#" class="dropdown-item">
-                <i class="fas fa-file mr-2"></i> 3 new reports
-                <span class="float-right text-muted text-sm">2 days</span>
-              </a>
-              <div class="dropdown-divider"></div>
-              <a href="#" class="dropdown-item dropdown-footer"
-                >See All Notifications</a
-              >
-            </div>
-          </li>
+
           <li class="nav-item">
             <a class="nav-link" data-widget="fullscreen" href="#" role="button">
               <i class="fas fa-expand-arrows-alt"></i>
@@ -244,22 +136,21 @@ $albums = query("SELECT * FROM album");
           <li class="nav-item">
             <a
               class="nav-link"
-              data-widget="control-sidebar"
-              data-controlsidebar-slide="true"
-              href="#"
+              
+              href="../"
               role="button"
             >
-              <i class="fas fa-th-large"></i>
-            </a>
+            <i data-feather="home"></i>
+          </a>
           </li>
         </ul>
       </nav>
       <!-- /.navbar -->
 
       <!-- Main Sidebar Container -->
-      <aside class="main-sidebar sidebar-dark-primary elevation-4">
+      <aside  class="main-sidebar sidebar-dark-primary elevation-4">
         <!-- Brand Logo -->
-        <a href="index.html" class="brand-link">
+        <a href="" class="brand-link">
           <img
             src="dist/img/AdminLTELogo.png"
             alt="AdminLTE Logo"
@@ -270,7 +161,7 @@ $albums = query("SELECT * FROM album");
         </a>
 
         <!-- Sidebar -->
-        <div class="sidebar">
+        <div  class="sidebar">
           <!-- Sidebar user panel (optional) -->
           <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="image">
@@ -281,7 +172,7 @@ $albums = query("SELECT * FROM album");
               />
             </div>
             <div class="info">
-              <a href="#" class="d-block">Admin</a>
+              <a href="" class="d-block">Admin</a>
             </div>
           </div>
 
@@ -316,7 +207,7 @@ $albums = query("SELECT * FROM album");
                 <a href="" class="nav-link active">
                   <i class="nav-icon fas fa-tachometer-alt"></i>
                   <p>
-                    Dashboard
+                    All Story
                     <!-- <i class="right fas fa-angle-left"></i> -->
                   </p>
                 </a>
@@ -334,7 +225,7 @@ $albums = query("SELECT * FROM album");
                   <li class="nav-item">
                     <a href="pages/forms/general.php" class="nav-link">
                       <i class="far fa-circle nav-icon"></i>
-                      <p>General Elements</p>
+                      <p>Add Story</p>
                     </a>
                   </li>
                  
@@ -343,7 +234,6 @@ $albums = query("SELECT * FROM album");
       </aside>
 
       <!-- Content Wrapper. Contains page content -->
-
 
 <div class="container-sm">
 
@@ -367,11 +257,12 @@ $albums = query("SELECT * FROM album");
       <td><p><?= $album["story"]; ?></p></td>
       <td>
         <a href="pages/forms/edit.php?id=<?= $album["id"]; ?>">
-      <button type="button" class="btn btn-primary">Edit</button>
+      <button type="button"  class="btn btn-primary">Edit</button>
         </a>
-        <a href="#"> 
-        <button type="button" class="btn btn-danger">Delete</button>
-        </a>
+          <a href="pages/forms/delete.php?id=<?= $album["id"]; ?>" id="button_Del">
+              <button  type="button" class="btn btn-danger"> 
+              Delete</button>
+          </a>    
       </td>
     </tr>
     <?php $i++; ?>
@@ -383,12 +274,12 @@ $albums = query("SELECT * FROM album");
       <!-- /.content-wrapper -->
       <footer class="main-footer fixed-bottom">
         <strong
-          >Copyright &copy; 2014-2021
-          <a href="https://adminlte.io">AdminLTE.io</a>.</strong
+          >Copyright &copy; 2023
+          <a href="https://instagram.com/bytedata_id">Bytedata_ID</a>.</strong
         >
         All rights reserved.
         <div class="float-right d-none d-sm-inline-block">
-          <b>Version</b> 3.2.0
+          <b>Version</b> 1.0.0
         </div>
       </footer>
 
@@ -434,5 +325,16 @@ $albums = query("SELECT * FROM album");
     <!-- <script src="dist/js/demo.js"></script> -->
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
     <!-- <script src="dist/js/pages/dashboard.js"></script> -->
+   
+<!-- my js -->
+<script src="../style/script.js"></script>
+    <!-- feather icon -->
+    <script>
+      feather.replace()
+    </script>
+
+    <script>
+    
+    </script>
   </body>
 </html>

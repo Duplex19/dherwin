@@ -4,24 +4,6 @@
 require '../../../functions/functions.php';
 
 
-if (isset($_POST["submit"])) {
-
-
-  if(tambah($_POST) > 0 ){
-    echo  <<<GFG
-          <div class="alert alert-success" role="alert">
-         Success Upload Your Story <a href="" class="alert-link">OK</a>.
-        </div>     
-     GFG;
-  } else {
-    echo <<<GFG
-    <div class="alert alert-danger" role="alert">
-   Failed Upload Your Story <a href="" class="alert-link">OK</a>.
-</div>
-GFG;
-  }
-}
-
 ?>
 
 
@@ -44,6 +26,16 @@ GFG;
     />
     <!-- Theme style -->
     <link rel="stylesheet" href="../../dist/css/adminlte.min.css" />
+      <!-- feather icon -->
+      <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+        <!-- sweet allert -->
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css"
+      id="theme-styles"
+    />
+
   </head>
   <body class="hold-transition sidebar-mini">
     <div class="wrapper">
@@ -51,19 +43,13 @@ GFG;
       <nav class="main-header navbar navbar-expand navbar-white navbar-light">
         <!-- Left navbar links -->
         <ul class="navbar-nav">
-          <li class="nav-item">
+        <li class="nav-item">
             <a class="nav-link" data-widget="pushmenu" href="#" role="button"
               ><i class="fas fa-bars"></i
             ></a>
           </li>
-          <li class="nav-item d-none d-sm-inline-block">
-            <a href="../../index3.php" class="nav-link">Home</a>
-          </li>
-          <li class="nav-item d-none d-sm-inline-block">
-            <a href="#" class="nav-link">Contact</a>
-          </li>
         </ul>
-
+           <p id="tes"></p>
         <!-- Right navbar links -->
         <ul class="navbar-nav ml-auto">
           <!-- Navbar Search -->
@@ -103,120 +89,9 @@ GFG;
           </li>
 
           <!-- Messages Dropdown Menu -->
-          <li class="nav-item dropdown">
-            <a class="nav-link" data-toggle="dropdown" href="#">
-              <i class="far fa-comments"></i>
-              <span class="badge badge-danger navbar-badge">3</span>
-            </a>
-            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-              <a href="#" class="dropdown-item">
-                <!-- Message Start -->
-                <div class="media">
-                  <img
-                    src="../../dist/img/user1-128x128.jpg"
-                    alt="User Avatar"
-                    class="img-size-50 mr-3 img-circle"
-                  />
-                  <div class="media-body">
-                    <h3 class="dropdown-item-title">
-                      Brad Diesel
-                      <span class="float-right text-sm text-danger"
-                        ><i class="fas fa-star"></i
-                      ></span>
-                    </h3>
-                    <p class="text-sm">Call me whenever you can...</p>
-                    <p class="text-sm text-muted">
-                      <i class="far fa-clock mr-1"></i> 4 Hours Ago
-                    </p>
-                  </div>
-                </div>
-                <!-- Message End -->
-              </a>
-              <div class="dropdown-divider"></div>
-              <a href="#" class="dropdown-item">
-                <!-- Message Start -->
-                <div class="media">
-                  <img
-                    src="../../dist/img/user8-128x128.jpg"
-                    alt="User Avatar"
-                    class="img-size-50 img-circle mr-3"
-                  />
-                  <div class="media-body">
-                    <h3 class="dropdown-item-title">
-                      John Pierce
-                      <span class="float-right text-sm text-muted"
-                        ><i class="fas fa-star"></i
-                      ></span>
-                    </h3>
-                    <p class="text-sm">I got your message bro</p>
-                    <p class="text-sm text-muted">
-                      <i class="far fa-clock mr-1"></i> 4 Hours Ago
-                    </p>
-                  </div>
-                </div>
-                <!-- Message End -->
-              </a>
-              <div class="dropdown-divider"></div>
-              <a href="#" class="dropdown-item">
-                <!-- Message Start -->
-                <div class="media">
-                  <img
-                    src="../../dist/img/user3-128x128.jpg"
-                    alt="User Avatar"
-                    class="img-size-50 img-circle mr-3"
-                  />
-                  <div class="media-body">
-                    <h3 class="dropdown-item-title">
-                      Nora Silvester
-                      <span class="float-right text-sm text-warning"
-                        ><i class="fas fa-star"></i
-                      ></span>
-                    </h3>
-                    <p class="text-sm">The subject goes here</p>
-                    <p class="text-sm text-muted">
-                      <i class="far fa-clock mr-1"></i> 4 Hours Ago
-                    </p>
-                  </div>
-                </div>
-                <!-- Message End -->
-              </a>
-              <div class="dropdown-divider"></div>
-              <a href="#" class="dropdown-item dropdown-footer"
-                >See All Messages</a
-              >
-            </div>
-          </li>
+      
           <!-- Notifications Dropdown Menu -->
-          <li class="nav-item dropdown">
-            <a class="nav-link" data-toggle="dropdown" href="#">
-              <i class="far fa-bell"></i>
-              <span class="badge badge-warning navbar-badge">15</span>
-            </a>
-            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
-              <span class="dropdown-item dropdown-header"
-                >15 Notifications</span
-              >
-              <div class="dropdown-divider"></div>
-              <a href="#" class="dropdown-item">
-                <i class="fas fa-envelope mr-2"></i> 4 new messages
-                <span class="float-right text-muted text-sm">3 mins</span>
-              </a>
-              <div class="dropdown-divider"></div>
-              <a href="#" class="dropdown-item">
-                <i class="fas fa-users mr-2"></i> 8 friend requests
-                <span class="float-right text-muted text-sm">12 hours</span>
-              </a>
-              <div class="dropdown-divider"></div>
-              <a href="#" class="dropdown-item">
-                <i class="fas fa-file mr-2"></i> 3 new reports
-                <span class="float-right text-muted text-sm">2 days</span>
-              </a>
-              <div class="dropdown-divider"></div>
-              <a href="#" class="dropdown-item dropdown-footer"
-                >See All Notifications</a
-              >
-            </div>
-          </li>
+
           <li class="nav-item">
             <a class="nav-link" data-widget="fullscreen" href="#" role="button">
               <i class="fas fa-expand-arrows-alt"></i>
@@ -225,13 +100,12 @@ GFG;
           <li class="nav-item">
             <a
               class="nav-link"
-              data-widget="control-sidebar"
-              data-slide="true"
-              href="#"
+              
+              href="../../../"
               role="button"
             >
-              <i class="fas fa-th-large"></i>
-            </a>
+            <i data-feather="home"></i>
+          </a>
           </li>
         </ul>
       </nav>
@@ -252,7 +126,7 @@ GFG;
 
         <!-- Sidebar -->
         <div class="sidebar">
-          <!-- Sidebar user (optional) -->
+          <!-- Sidebar user panel (optional) -->
           <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="image">
               <img
@@ -262,7 +136,7 @@ GFG;
               />
             </div>
             <div class="info">
-              <a href="#" class="d-block">Admin</a>
+              <a href="" class="d-block">Admin</a>
             </div>
           </div>
 
@@ -293,19 +167,18 @@ GFG;
             >
               <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
-              <li class="nav-item">
-                <a href="../../index.php" class="nav-link">
+              <li class="nav-item menu-open">
+                <a href="../../index.php" class="nav-link active">
                   <i class="nav-icon fas fa-tachometer-alt"></i>
                   <p>
-                    Dashboard
-                    <i class="right fas fa-angle-left"></i>
+                    All Story
+                    <!-- <i class="right fas fa-angle-left"></i> -->
                   </p>
                 </a>
-                
               </li>
 
-              <li class="nav-item menu-open">
-                <a href="#" class="nav-link active">
+              <li class="nav-item">
+                <a href="#" class="nav-link">
                   <i class="nav-icon fas fa-edit"></i>
                   <p>
                     Forms
@@ -314,17 +187,12 @@ GFG;
                 </a>
                 <ul class="nav nav-treeview">
                   <li class="nav-item">
-                    <a href="../forms/general.php" class="nav-link active">
+                    <a href="" class="nav-link">
                       <i class="far fa-circle nav-icon"></i>
-                      <p>General Elements</p>
+                      <p>Add Story</p>
                     </a>
                   </li>
-              
-                </ul>
-              </li>
-             
-          </nav>
-          <!-- /.sidebar-menu -->
+                 
         </div>
         <!-- /.sidebar -->
       </aside>
@@ -338,6 +206,38 @@ GFG;
               <div class="col-sm-6">
                 <h1>General Form</h1>
               </div>
+
+<?php 
+
+if (isset($_POST["submit"])) {
+
+
+  if(tambah($_POST) > 0 ){
+    echo  <<<GFG
+                <script>
+                Swal.fire({
+                  icon: "success",
+                  title: "Success",
+                  text: "Story has been Uploaded!"
+                })
+               </script>
+            GFG;
+  } else {
+    echo <<<GFG
+              <script>
+              Swal.fire({
+                icon: "error",
+                title: "Failed",
+                text: "Failed Upload Story!"
+              })
+            </script>
+GFG;
+  }
+}
+
+?>
+
+
               <div class="col-sm-6">
                 <ol class="breadcrumb float-sm-right">
                   <li class="breadcrumb-item"><a href="#">Home</a></li>
@@ -440,15 +340,16 @@ GFG;
         <!-- /.content -->
       </div>
       <!-- /.content-wrapper -->
-      <footer class="main-footer">
-        <div class="float-right d-none d-sm-block"><b>Version</b> 1.0.0</div>
+      <footer class="main-footer fixed-bottom">
         <strong
           >Copyright &copy; 2023
-          <a href="#">Bytedata-ID</a>.</strong
+          <a href="https://instagram.com/bytedata_id">Bytedata_ID</a>.</strong
         >
         All rights reserved.
+        <div class="float-right d-none d-sm-inline-block">
+          <b>Version</b> 1.0.0
+        </div>
       </footer>
-
       <!-- Control Sidebar -->
       <aside class="control-sidebar control-sidebar-dark">
         <!-- Control sidebar content goes here -->
@@ -458,7 +359,7 @@ GFG;
     <!-- ./wrapper -->
 
     <!-- jQuery -->
-    <script src="../../plugins/jquery/jquery.min.js"></script>
+    <script src="../../plugins/jquery/jquery.min.js"></>
     <!-- Bootstrap 4 -->
     <script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
     <!-- bs-custom-file-input -->
@@ -473,5 +374,16 @@ GFG;
         bsCustomFileInput.init();
       });
     </script>
+     <!-- feather icon -->
+     <script>
+      feather.replace()
+    </script>
+  <!-- sweet alert -->
+  <script>
+    function success() {
+               
+              
+}
+  </script>
   </body>
 </html>
