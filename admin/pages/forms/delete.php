@@ -1,5 +1,10 @@
 <?php 
+session_start();
 
+if (!isset($_SESSION["login"])) {
+  header("Location: ../examples/login.php");
+  exit;
+}
 require '../../../functions/functions.php';
 
 $id = $_GET["id"];

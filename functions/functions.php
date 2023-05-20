@@ -1,6 +1,6 @@
 <?php 
 
-$link = mysqli_connect("localhost", "duplex", "duplex1909", "erwin");
+$link = mysqli_connect("localhost", "root", "", "erwin");
 
 
 function query($query){
@@ -121,5 +121,60 @@ function delete($id){
     mysqli_query($link, "DELETE FROM album WHERE id = $id");
 
     return mysqli_affected_rows($link);
+}
+
+function register($data){
+    global $link;
+
+    $name = $data["name"];
+    $email = $data["email"];
+    $password = mysqli_real_escape_string($link, $data["password"]);
+    $confirm_password = mysqli_real_escape_string($link, $data["confirm_password"]);
+
+    // cek email
+
+    $result = mysqli_query($link, "SELECT email FROM user WHERE email='$email'");
+    if(mysqli_fetch_assoc($result)) {
+        echo "
+                <script>
+                Swal.fire({
+                    icon: 'error',
+                    title: 'User Allredy Registered!',
+                    showConfirmButton: false,
+                    timer: 1500
+                  })
+                </script>
+        
+            ";
+            return false;
+    }
+
+    if ($password !== $confirm_password) {      
+        echo "
+                <script>
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Password Not Confirmed!',
+                    showConfirmButton: false,
+                    timer: 1500
+                })
+                </script>
+            ";
+            return false;
+    }
+
+    // enkrip Pass
+
+    $password = password_hash($password, PASSWORD_DEFAULT);
+
+    mysqli_query($link, "INSERT INTO user VALUES (
+                                                    NULL,
+                                                    '$name',
+                                                    '$email',
+                                                    '$password'                                                              
+                                                    )");
+
+    return mysqli_affected_rows($link);
+
 }
 ?>

@@ -1,5 +1,10 @@
 <?php 
+session_start();
 
+if (!isset($_SESSION["login"])) {
+  header("Location: pages/examples/login.php");
+  exit;
+}
 require '../functions/functions.php';
 
 $albums = query("SELECT * FROM album");
@@ -55,6 +60,8 @@ $albums = query("SELECT * FROM album");
   <!-- sweet allert -->
   <script src="../sweetallert/dist/sweetalert2.all.min.js"></script>
     <link rel="stylesheet" href="../sweetallert/dist/sweetalert2.min.css">
+    <!-- MY Style -->
+    <link rel="stylesheet" href="../style/style.css">
   </head>
   <body >
        
@@ -141,6 +148,16 @@ $albums = query("SELECT * FROM album");
               role="button"
             >
             <i data-feather="home"></i>
+          </a>
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              
+              href="pages/examples/logout.php"
+              role="button"
+            >
+            <i data-feather="log-out"></i>
           </a>
           </li>
         </ul>
@@ -234,43 +251,55 @@ $albums = query("SELECT * FROM album");
       </aside>
 
       <!-- Content Wrapper. Contains page content -->
-
-<div class="container-sm">
-
-      <table  class="table table-hover table-striped table-bordered">
-  <thead >
-    <tr class="bg-secondary">
-      <th scope="col">#</th>
-      <th scope="col">Foto</th>
-      <th scope="col">Judul</th>
-      <th scope="col">Story</th>
-      <th scope="col">Options</th>
-    </tr>
-  </thead>
-  <tbody>
-    <?php $i = 1; ?>
-  <?php foreach($albums as $album): ?>
-    <tr>
-      <th scope="row"><?= $i; ?></th>
-      <td><img width="100px" height="100px" src="../img/<?= $album["image"]; ?>" alt=""></td>
-      <td><p><?= $album["name"]; ?></p></td>
-      <td><p><?= $album["story"]; ?></p></td>
-      <td>
-        <a href="pages/forms/edit.php?id=<?= $album["id"]; ?>">
-      <button type="button"  class="btn btn-primary">Edit</button>
-        </a>
-          <a href="pages/forms/delete.php?id=<?= $album["id"]; ?>" id="button_Del">
-              <button  type="button" class="btn btn-danger"> 
-              Delete</button>
-          </a>    
-      </td>
-    </tr>
-    <?php $i++; ?>
-    <?php endforeach; ?>
-  </tbody>
-</table>
-
-</div>
+    <section class="content">
+      <div class="container">  
+        <div class="container-fluid">  
+          <div class="row justify-content-md-center">
+            <div class="col col-md-8">
+              <div class="card">
+                  <table  class="text-center table table-hover table-striped table-bordered">
+                      <thead >
+                        <tr class="bg-secondary">
+                          <th scope="col">#</th>
+                          <th scope="col">Foto</th>
+                          <th scope="col">Judul</th>
+                          <th scope="col">Story</th>
+                          <th scope="col">Options</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <?php $i = 1; ?>
+                          <?php foreach($albums as $album): ?>
+                        <tr>
+                          <th scope="row"><?= $i; ?></th>
+                          <td><img width="100px" height="100px" src="../img/<?= $album["image"]; ?>" alt=""></td>
+                          <td><p><?= $album["name"]; ?></p></td>
+                          <td><p><?= $album["story"]; ?></p></td>
+                          <td>
+                            <a href="pages/forms/edit.php?id=<?= $album["id"]; ?>">
+                          <button type="button"  class="btn btn-primary">Edit</button>
+                            </a>
+                              <!-- <a href="pages/forms/delete.php?id=<?= $album["id"]; ?>" id="btn-del"> -->
+                                 
+                              
+                              <button onclick="delete_str(<?= $album['id']; ?>)" type="button" class="btn btn-danger"> 
+                                  Delete</button>
+                              
+                              
+                              
+                                  <!-- </a>     -->
+                          </td>
+                        </tr>
+                        <?php $i++; ?>
+                        <?php endforeach; ?>
+                      </tbody>
+                  </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
       <!-- /.content-wrapper -->
       <footer class="main-footer fixed-bottom">
         <strong
@@ -334,7 +363,7 @@ $albums = query("SELECT * FROM album");
     </script>
 
     <script>
-    
+
     </script>
   </body>
 </html>

@@ -1,33 +1,16 @@
 <?php 
 
+session_start();
 
+if (!isset($_SESSION["login"])) {
+  header("Location: ../examples/login.php");
+  exit;
+}
 require '../../../functions/functions.php';
 
 $id = $_GET["id"];
 
 $album = query("SELECT * FROM album WHERE id = $id")[0];
-
-if(isset($_POST["edit"])){
-
-  if(edit($_POST) > 0 ){
-    echo "
-    <script>
-    Swal.fire(
-      'Good job!',
-      'You clicked the button!',
-      'success')
-  </script>
-          ";
-  } 
-  else {
-    echo <<<GFG
-    <div class="alert alert-danger" role="alert">
-   Failed Upload Your Story <a href="../../index.php" class="alert-link">OK</a>.
-</div>
-GFG;
-  }
-}
-
 ?>
 
 
@@ -124,6 +107,16 @@ GFG;
               role="button"
             >
             <i data-feather="home"></i>
+          </a>
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              
+              href="../examples/logout.php"
+              role="button"
+            >
+            <i data-feather="log-out"></i>
           </a>
           </li>
         </ul>
@@ -236,7 +229,34 @@ GFG;
           </div>
           <!-- /.container-fluid -->
         </section>
+<?php 
 
+if(isset($_POST["edit"])){
+
+  if(edit($_POST) > 0 ){
+    echo  <<<GFG
+    <script>
+    Swal.fire({
+      icon: "success",
+      title: "Success",
+      text: "Story has been Edited!"
+    })
+   </script>
+GFG;
+} else {
+echo <<<GFG
+  <script>
+  Swal.fire({
+    icon: "error",
+    title: "Failed",
+    text: "Failed Edit Story!"
+  })
+</script>
+GFG;
+}
+}
+
+?>
         <!-- Main content -->
         <section class="content">
           <div class="container-fluid">

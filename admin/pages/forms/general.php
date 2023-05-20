@@ -1,5 +1,10 @@
 <?php 
+session_start();
 
+if (!isset($_SESSION["login"])) {
+  header("Location: ../examples/login.php");
+  exit;
+}
 
 require '../../../functions/functions.php';
 
@@ -105,6 +110,16 @@ require '../../../functions/functions.php';
               role="button"
             >
             <i data-feather="home"></i>
+          </a>
+          </li>
+          <li class="nav-item">
+            <a
+              class="nav-link"
+              
+              href="../examples/logout.php"
+              role="button"
+            >
+            <i data-feather="log-out"></i>
           </a>
           </li>
         </ul>
