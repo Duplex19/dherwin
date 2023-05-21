@@ -82,7 +82,7 @@ $albums = query("SELECT * FROM album");
 
       <!-- Navbar -->
 
-</script>
+
       <nav class="main-header navbar navbar-expand navbar-white navbar-light">
         <!-- Left navbar links -->
         <ul class="navbar-nav">
@@ -165,105 +165,109 @@ $albums = query("SELECT * FROM album");
       <!-- /.navbar -->
 
       <!-- Main Sidebar Container -->
-      <aside  class="main-sidebar sidebar-dark-primary elevation-4">
-        <!-- Brand Logo -->
-        <a href="" class="brand-link">
-          <img
-            src="dist/img/AdminLTELogo.png"
-            alt="AdminLTE Logo"
-            class="brand-image img-circle elevation-3"
-            style="opacity: 0.8"
-          />
-          <span class="brand-text font-weight-light">Bytedata-ID</span>
-        </a>
+        <aside  class="main-sidebar  sidebar-dark-primary elevation-4">
+          
+          <!-- Brand Logo -->
+          <a href="" class="brand-link">
+            <img
+              src="dist/img/AdminLTELogo.png"
+              alt="AdminLTE Logo"
+              class="brand-image img-circle elevation-3"
+              style="opacity: 0.8"
+            />
+            <span class="brand-text font-weight-light">Bytedata-ID</span>
+          </a>
 
-        <!-- Sidebar -->
-        <div  class="sidebar">
-          <!-- Sidebar user panel (optional) -->
-          <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-            <div class="image">
-              <img
-                src="dist/img/user2-160x160.jpg"
-                class="img-circle elevation-2"
-                alt="User Image"
-              />
-            </div>
-            <div class="info">
-              <a href="" class="d-block">Admin</a>
-            </div>
-          </div>
-
-          <!-- SidebarSearch Form -->
-          <div class="form-inline">
-            <div class="input-group" data-widget="sidebar-search">
-              <input
-                class="form-control form-control-sidebar"
-                type="search"
-                placeholder="Search"
-                aria-label="Search"
-              />
-              <div class="input-group-append">
-                <button class="btn btn-sidebar">
-                  <i class="fas fa-search fa-fw"></i>
-                </button>
+          <!-- Sidebar -->
+          <div  class="sidebar">
+            <!-- Sidebar user panel (optional) -->
+            <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+              <div class="image">
+                <img
+                  src="dist/img/user2-160x160.jpg"
+                  class="img-circle elevation-2"
+                  alt="User Image"
+                />
+              </div>
+              <div class="info">
+                <a href="" class="d-block">Admin</a>
               </div>
             </div>
+
+            <!-- SidebarSearch Form -->
+            <div class="form-inline">
+              <div class="input-group" data-widget="sidebar-search">
+                <input
+                  class="form-control form-control-sidebar"
+                  type="search"
+                  placeholder="Search"
+                  aria-label="Search"
+                />
+                <div class="input-group-append">
+                  <button class="btn btn-sidebar">
+                    <i class="fas fa-search fa-fw"></i>
+                  </button>
+                </div>
+              </div>
+            </div>
+
+            <!-- Sidebar Menu -->
+            <nav class="mt-2">
+              <ul
+                class="nav nav-pills nav-sidebar flex-column"
+                data-widget="treeview"
+                role="menu"
+                data-accordion="false"
+              >
+                <!-- Add icons to the links using the .nav-icon class
+                with font-awesome or any other icon font library -->
+                <li class="nav-item menu-open">
+                  <a href="" class="nav-link active">
+                    <i class="nav-icon fas fa-tachometer-alt"></i>
+                    <p>
+                      All Story
+                      <!-- <i class="right fas fa-angle-left"></i> -->
+                    </p>
+                  </a>
+                </li>
+
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="nav-icon fas fa-edit"></i>
+                    <p>
+                      Forms
+                      <i class="fas fa-angle-left right"></i>
+                    </p>
+                  </a>
+                  <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                      <a href="pages/forms/general.php" class="nav-link">
+                        <i class="far fa-circle nav-icon"></i>
+                        <p>Add Story</p>
+                      </a>
+                    </li>
+                  
           </div>
-
-          <!-- Sidebar Menu -->
-          <nav class="mt-2">
-            <ul
-              class="nav nav-pills nav-sidebar flex-column"
-              data-widget="treeview"
-              role="menu"
-              data-accordion="false"
-            >
-              <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
-              <li class="nav-item menu-open">
-                <a href="" class="nav-link active">
-                  <i class="nav-icon fas fa-tachometer-alt"></i>
-                  <p>
-                    All Story
-                    <!-- <i class="right fas fa-angle-left"></i> -->
-                  </p>
-                </a>
-              </li>
-
-              <li class="nav-item">
-                <a href="#" class="nav-link">
-                  <i class="nav-icon fas fa-edit"></i>
-                  <p>
-                    Forms
-                    <i class="fas fa-angle-left right"></i>
-                  </p>
-                </a>
-                <ul class="nav nav-treeview">
-                  <li class="nav-item">
-                    <a href="pages/forms/general.php" class="nav-link">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>Add Story</p>
-                    </a>
-                  </li>
-                 
-        </div>
-        <!-- /.sidebar -->
-      </aside>
-
+          
+          <!-- /.sidebar -->
+        </aside>
       <!-- Content Wrapper. Contains page content -->
     <section class="content">
-      <div class="container">  
+      <div class="container"> 
         <div class="container-fluid">  
-          <div class="row justify-content-md-center">
-            <div class="col col-md-8">
+          <div class="row ">
+            <div class="col-2"></div>
+            <div class="col col-md-10">
               <div class="card">
-                  <table  class="text-center table table-hover table-striped table-bordered">
+                  <table  class="text-center table  table-hover table-striped table-bordered">
                       <thead >
                         <tr class="bg-secondary">
                           <th scope="col">#</th>
                           <th scope="col">Foto</th>
                           <th scope="col">Judul</th>
                           <th scope="col">Story</th>
+                          <th scope="col">Category</th>
+                          <!-- <th scope="col">Tanggal</th> -->
                           <th scope="col">Options</th>
                         </tr>
                       </thead>
@@ -275,11 +279,12 @@ $albums = query("SELECT * FROM album");
                           <td><img width="100px" height="100px" src="../img/<?= $album["image"]; ?>" alt=""></td>
                           <td><p><?= $album["name"]; ?></p></td>
                           <td><p><?= $album["story"]; ?></p></td>
+                          <td><p><?= $album["category"]; ?></p></td>
                           <td>
                             <a href="pages/forms/edit.php?id=<?= $album["id"]; ?>">
                           <button type="button"  class="btn btn-primary">Edit</button>
                             </a>
-                              <!-- <a href="pages/forms/delete.php?id=<?= $album["id"]; ?>" id="btn-del"> -->
+                              <!-- <a href="pages/forms/delete.php?id=" id="btn-del"> -->
                                  
                               
                               <button onclick="delete_str(<?= $album['id']; ?>)" type="button" class="btn btn-danger"> 
@@ -292,14 +297,124 @@ $albums = query("SELECT * FROM album");
                         </tr>
                         <?php $i++; ?>
                         <?php endforeach; ?>
+
+                     
                       </tbody>
                   </table>
+
               </div>
             </div>
           </div>
         </div>
       </div>
     </section>
+    <br>
+                     <br>
+                     <br>
+                     <br>
+                     <br>
+                     <br>
+                     <br>
+                     <br>
+                     <br>
+                     <br>
+                     <br>
+                     <br>
+                     <br>
+                     <br>
+                     <br>
+                     <br>
+                     <br>
+                     <br>
+                     <br>
+                     <br>
+                     <br>
+                     <br>
+                     <br>
+                     <br>
+                     <br>
+                     <br>
+                     <br>
+                     <br>
+                     <br>
+                     <br>
+                     <br>
+                     <br>
+                     <br>
+                     <br>
+                     <br>
+                     <br>
+                     <br>
+                     <br>
+                     <br>
+                     <br>
+                     <br>
+                     <br>
+                     <br>
+                     <br>
+                     <br>
+                     <br>
+                     <br>
+                     <br>
+                     <br>
+                     <br>
+                     <br>
+                     <br>
+                     <br>
+                     <br>
+                     <br>
+                     <br>
+                     <br>
+                     <br>
+                     <br>
+                     <br>
+                     <br>
+                     <br>
+                     <br>
+                     <br>
+                     <br>
+                     <br>
+                     <br>
+                     <br>
+                     <br>
+                     <br>
+                     <br>
+                     <br>
+                     <br>
+                     <br>
+                     <br>
+                     <br>
+                     <br>
+                     <br>
+                     <br>
+                     <br>
+                     <br>
+                     <br>
+                     <br>
+                     <br>
+                     <br>
+                     <br>
+                     <br>
+                     <br>
+                     <br>
+                     <br>
+                     <br>
+                     <br>
+                     <br>
+                     <br>
+                     <br>
+                     <br>
+                     <br>
+                     <br>
+                     <br>
+                     <br>
+                     <br>
+                     <br>
+                     <br>
+                     <br>
+                     <br>
+                     <br>
+                     <br>
       <!-- /.content-wrapper -->
       <footer class="main-footer fixed-bottom">
         <strong

@@ -18,9 +18,11 @@ function tambah($data) {
 
     global $link;
 
+
 $judul = htmlspecialchars($data["judul"]);
 $story = htmlspecialchars($data["story"]);
-
+$category = htmlspecialchars($data["category"]);
+// $tanggal = htmlspecialchars($data["tanggal"]);
 $foto = upload();
 if(!$foto){
     return false;
@@ -28,7 +30,7 @@ if(!$foto){
 
 $input = "INSERT INTO album
             VALUES(
-                NULL, '$judul', '$foto', '$story'
+                NULL, '$judul', '$foto', '$story', '$category'
             )";
 
 mysqli_query($link, $input);
@@ -89,6 +91,8 @@ function edit($data){
     $id = $data["id"];
     $name = htmlspecialchars($data["judul"]);
     $story = htmlspecialchars($data["story"]);
+    $category = htmlspecialchars($data["category"]);
+
     $old_image = $data["old_image"];
 
 
@@ -103,7 +107,8 @@ function edit($data){
    $input1 = "UPDATE album SET 
                 name = '$name',
                 image = '$image',
-                story = '$story'
+                story = '$story',
+                category = '$category'
                 WHERE id = '$id'";
        
 

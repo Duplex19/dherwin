@@ -31,6 +31,8 @@ $albums = query("SELECT * FROM album ");
   <link rel="stylesheet" href="style/plugins/ekko-lightbox/ekko-lightbox.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="style/dist/css/adminlte.min.css">
+   <!-- feather icon -->
+   <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
     
 <header data-bs-theme="dark">
   <div class="collapse text-bg-dark" id="navbarHeader">
@@ -50,12 +52,14 @@ $albums = query("SELECT * FROM album ");
         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" aria-hidden="true" class="me-2" viewBox="0 0 24 24"><path d="M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z"/><circle cx="12" cy="13" r="4"/></svg>
         <strong>Album</strong>
       </a>
-      <button type="button" class="btn btn-light"><a style="text-decoration: none; color: #343a40; font-size: 100% " href="admin"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
+      <button type="button" class="btn btn-light"><a style="text-decoration: none; color: #343a40; font-size: 100% " href="admin">
+      <!-- <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person-fill" viewBox="0 0 16 16">
   <path d="M3 14s-1 0-1-1 1-4 6-4 6 3 6 4-1 1-1 1H3Zm5-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z"/>
-</svg></a></button>
-      <!-- <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button> -->
+</svg> -->
+<i data-feather="user">
+</i>
+</a></button>
+     
     </div>
   </div>
 </header>
@@ -83,23 +87,23 @@ $albums = query("SELECT * FROM album ");
               </div>
               <div class="card-body">
                 <div>
-                  <!-- <div class="btn-group w-100 mb-2">
-                    <a class="btn btn-info active" href="javascript:void(0)" data-filter="all"> All items </a>
-                    <a class="btn btn-info" href="javascript:void(0)" data-filter="1"> Category 1 (WHITE) </a>
-                    <a class="btn btn-info" href="javascript:void(0)" data-filter="2"> Category 2 (BLACK) </a>
-                    <a class="btn btn-info" href="javascript:void(0)" data-filter="3"> Category 3 (COLORED) </a>
-                    <a class="btn btn-info" href="javascript:void(0)" data-filter="4"> Category 4 (COLORED, BLACK) </a>
-                  </div> -->
+                  <div class="btn-group w-100 mb-2">
+                    <a class="btn btn-info active" href="javascript:void(0)" data-filter="all"> All  </a>
+                    <a class="btn btn-info" href="javascript:void(0)" data-filter="our"> (Our) </a>
+                    <a class="btn btn-info" href="javascript:void(0)" data-filter="erwin"> (Erwin) </a>
+                    <a class="btn btn-info" href="javascript:void(0)" data-filter="dhea"> (Dhea) </a>
+                       <!-- <a class="btn btn-info" href="javascript:void(0)" data-filter="4"> Category 4 (COLORED, BLACK) </a> -->
+                  </div>
                   <div class="mb-2">
-                    <a class="btn btn-secondary" href="javascript:void(0)" data-shuffle> Shuffle items </a>
+                    <a class="btn btn-info" href="javascript:void(0)" data-shuffle> Shuffle items </a>
                     <div class="float-right">
                       <!-- <select class="custom-select" style="width: auto;" data-sortOrder>
                         <option value="index"> Sort by Position </option>
                         <option value="sortData"> Sort by Custom Data </option>
                       </select> -->
                       <div class="btn-group">
-                        <a class="btn btn-default" href="javascript:void(0)" data-sortAsc> Ascending </a>
-                        <a class="btn btn-default" href="javascript:void(0)" data-sortDesc> Descending </a>
+                        <!-- <a class="btn btn-default" href="javascript:void(0)" data-sortAsc> Ascending </a>
+                        <a class="btn btn-default" href="javascript:void(0)" data-sortDesc> Descending </a> -->
                       </div>
                     </div>
                   </div>
@@ -108,11 +112,13 @@ $albums = query("SELECT * FROM album ");
                   <div class="filter-container p-0 row " >
                     <?php $i=1; ?>
                       <?php foreach($albums as $album): ?>
-                              <div class="filtr-item col-sm-2" data-category="<?=  $i; ?>" data-sort="<?=  $i; ?>">
+
+                              <div class="filtr-item col-sm-2" data-category="<?=  $album["category"]; ?>" data-sort="<?= $i; ?>">
                                 <a href="img/<?= $album["image"]; ?>" data-toggle="lightbox" data-title="<?= $album["name"]; ?>" data-gallery="gallery" >
                                   <img src="img/<?= $album["image"]?>" style="max-height:230px; min-height:230px;" class="img-fluid mb-2" alt="<?= $album["name"]; ?>"/>
                                 </a>    
                               </div>
+
                               <?php $i++; ?>
                       <?php endforeach; ?>
                   </div>              
@@ -168,6 +174,10 @@ $albums = query("SELECT * FROM album ");
     });
   })
 </script>
+ <!-- feather icon -->
+ <script>
+      feather.replace()
+    </script>
     <!--  -->
     <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script> -->
   <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script> -->

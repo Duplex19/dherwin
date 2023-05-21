@@ -3,3 +3,7 @@
     max-width: 60%; */
     position: relative;
 }
+
+.wrapper .side {
+    min-height: 100vh;
+}
