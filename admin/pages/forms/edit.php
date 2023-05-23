@@ -287,16 +287,17 @@ GFG;
                         />
                       </div>
                       <div class="form-group">
-                        <label for="exampleInputPassword1">Story</label>
-                        <input
-                          type="text"
-                          class="form-control"
-                          id="exampleInputPassword1"
-                          placeholder="Story"
+                        <div class="form-floating">
+                        <label for="floatingTextarea2">Story</label>
+
+                          <textarea 
+                          class="form-control" 
+                          placeholder="Write Stories here" 
+                          id="floatingTextarea2" 
+                          style="height: 100px"
                           name="story"
-                          value="<?= $album["story"]; ?>"
-                        />
-                      </div>
+                          ><?= $album["story"]; ?></textarea>
+                        </div>
                       <div class="form-group">
                         <label for="we">Category</label>
                           <div class="container">
@@ -304,7 +305,7 @@ GFG;
                               
                                 <div class="col-md-3">
                                   <div class="form-check">
-                                    <input class="form-check-input" value="our" type="radio" name="category">
+                                    <input class="form-check-input" value="our" type="radio" name="category" checked="checked">
                                     <label class="form-check-label">Our</label>
                                   </div>
                                 </div>

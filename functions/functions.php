@@ -21,6 +21,7 @@ function tambah($data) {
 
 $judul = htmlspecialchars($data["judul"]);
 $story = htmlspecialchars($data["story"]);
+
 $category = htmlspecialchars($data["category"]);
 // $tanggal = htmlspecialchars($data["tanggal"]);
 $foto = upload();

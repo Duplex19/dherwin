@@ -301,15 +301,18 @@ require '../../../functions/functions.php';
                       </div>
 
                       <div class="form-group">
-                        <label for="exampleInputPassword1">Story</label>
-                        <input
-                          type="text"
-                          class="form-control"
-                          id="exampleInputPassword1"
-                          placeholder="Story"
+                        <div class="form-floating">
+                        <label for="floatingTextarea2">Story</label>
+
+                          <textarea 
+                          class="form-control" 
+                          placeholder="Write Stories here" 
+                          id="floatingTextarea2" 
+                          style="height: 100px"
                           name="story"
-                        />
-                        
+                          ></textarea>
+                        </div>
+                       
                       </div>
                       <div class="form-group">
                         <label for="we">Category</label>

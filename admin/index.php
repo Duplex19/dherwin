@@ -267,7 +267,7 @@ $albums = query("SELECT * FROM album");
                   <?php foreach($albums as $album): ?>
                       <tr>
                         <th scope="row"><?= $i; ?></th>
-                        <td><img width="100px" height="100px" src="../img/<?= $album["image"]; ?>" alt=""></td>
+                        <td><img width="75px" height="75px" src="../img/<?= $album["image"]; ?>" alt=""></td>
                         <td><p><?= $album["name"]; ?></p></td>
                         <td><p><?= $album["story"]; ?></p></td>
                         <td><p><?= $album["category"]; ?></p></td>
