@@ -19,7 +19,9 @@ $albums = query("SELECT * FROM album");
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Bytedata-ID | Dashboard</title>
-
+    <!-- data Table -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/dataTables.bootstrap5.min.css">
     <!-- Google Font: Source Sans Pro -->
     <link
       rel="stylesheet"
@@ -57,28 +59,17 @@ $albums = query("SELECT * FROM album");
     <link rel="stylesheet" href="plugins/summernote/summernote-bs4.min.css" />
     <!-- feather icon -->
     <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
-  <!-- sweet allert -->
-  <script src="../sweetallert/dist/sweetalert2.all.min.js"></script>
+    <!-- sweet allert -->
+    <script src="../sweetallert/dist/sweetalert2.all.min.js"></script>
     <link rel="stylesheet" href="../sweetallert/dist/sweetalert2.min.css">
     <!-- MY Style -->
     <link rel="stylesheet" href="../style/style.css">
+
   </head>
   <body >
        
     
     <div class="wrapper">
-      <!-- Preloader -->
-      <!-- <div
-        class="preloader flex-column justify-content-center align-items-center"
-      >
-        <img
-          class="animation__shake"
-          src="dist/img/AdminLTELogo.png"
-          alt="AdminLTELogo"
-          height="60"
-          width="60"
-        />
-      </div> -->
 
       <!-- Navbar -->
 
@@ -253,170 +244,56 @@ $albums = query("SELECT * FROM album");
         </aside>
       <!-- Content Wrapper. Contains page content -->
     <section class="content">
-      <div class="container"> 
+       <div class="container"> 
         <div class="container-fluid">  
           <div class="row ">
             <div class="col-2"></div>
             <div class="col col-md-10">
               <div class="card">
-                  <table  class="text-center table  table-hover table-striped table-bordered">
-                      <thead >
-                        <tr class="bg-secondary">
-                          <th scope="col">#</th>
-                          <th scope="col">Foto</th>
-                          <th scope="col">Judul</th>
-                          <th scope="col">Story</th>
-                          <th scope="col">Category</th>
-                          <!-- <th scope="col">Tanggal</th> -->
-                          <th scope="col">Options</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <?php $i = 1; ?>
-                          <?php foreach($albums as $album): ?>
-                        <tr>
-                          <th scope="row"><?= $i; ?></th>
-                          <td><img width="100px" height="100px" src="../img/<?= $album["image"]; ?>" alt=""></td>
-                          <td><p><?= $album["name"]; ?></p></td>
-                          <td><p><?= $album["story"]; ?></p></td>
-                          <td><p><?= $album["category"]; ?></p></td>
-                          <td>
-                            <a href="pages/forms/edit.php?id=<?= $album["id"]; ?>">
-                          <button type="button"  class="btn btn-primary">Edit</button>
-                            </a>
-                              <!-- <a href="pages/forms/delete.php?id=" id="btn-del"> -->
-                                 
-                              
-                              <button onclick="delete_str(<?= $album['id']; ?>)" type="button" class="btn btn-danger"> 
-                                  Delete</button>
-                              
-                              
-                              
-                                  <!-- </a>     -->
-                          </td>
-                        </tr>
-                        <?php $i++; ?>
-                        <?php endforeach; ?>
-
-                     
-                      </tbody>
-                  </table>
+                 
+              <table id="example" class="text-center table  table-hover table-striped table-bordered">
+                <thead >
+                  <tr class="bg-secondary">
+                    <th scope="col">#</th>
+                    <th scope="col">Foto</th>
+                    <th scope="col">Judul</th>
+                    <th scope="col">Story</th>
+                    <th scope="col">Category</th>
+                    <th scope="col">Options</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <?php $i = 1; ?>
+                  <?php foreach($albums as $album): ?>
+                      <tr>
+                        <th scope="row"><?= $i; ?></th>
+                        <td><img width="100px" height="100px" src="../img/<?= $album["image"]; ?>" alt=""></td>
+                        <td><p><?= $album["name"]; ?></p></td>
+                        <td><p><?= $album["story"]; ?></p></td>
+                        <td><p><?= $album["category"]; ?></p></td>
+                        <td>
+                          <a href="pages/forms/edit.php?id=<?= $album["id"]; ?>">
+                            <button type="button"  class="btn btn-primary">Edit</button>
+                          </a>
+                            <button onclick="delete_str(<?= $album['id']; ?>)" type="button" class="btn btn-danger"> 
+                                Delete</button>
+                        </td>
+                      </tr>
+                    <?php $i++; ?>
+                  <?php endforeach; ?>
+                </tbody>
+              </table>
 
               </div>
             </div>
           </div>
         </div>
       </div>
+     
     </section>
-    <br>
-                     <br>
-                     <br>
-                     <br>
-                     <br>
-                     <br>
-                     <br>
-                     <br>
-                     <br>
-                     <br>
-                     <br>
-                     <br>
-                     <br>
-                     <br>
-                     <br>
-                     <br>
-                     <br>
-                     <br>
-                     <br>
-                     <br>
-                     <br>
-                     <br>
-                     <br>
-                     <br>
-                     <br>
-                     <br>
-                     <br>
-                     <br>
-                     <br>
-                     <br>
-                     <br>
-                     <br>
-                     <br>
-                     <br>
-                     <br>
-                     <br>
-                     <br>
-                     <br>
-                     <br>
-                     <br>
-                     <br>
-                     <br>
-                     <br>
-                     <br>
-                     <br>
-                     <br>
-                     <br>
-                     <br>
-                     <br>
-                     <br>
-                     <br>
-                     <br>
-                     <br>
-                     <br>
-                     <br>
-                     <br>
-                     <br>
-                     <br>
-                     <br>
-                     <br>
-                     <br>
-                     <br>
-                     <br>
-                     <br>
-                     <br>
-                     <br>
-                     <br>
-                     <br>
-                     <br>
-                     <br>
-                     <br>
-                     <br>
-                     <br>
-                     <br>
-                     <br>
-                     <br>
-                     <br>
-                     <br>
-                     <br>
-                     <br>
-                     <br>
-                     <br>
-                     <br>
-                     <br>
-                     <br>
-                     <br>
-                     <br>
-                     <br>
-                     <br>
-                     <br>
-                     <br>
-                     <br>
-                     <br>
-                     <br>
-                     <br>
-                     <br>
-                     <br>
-                     <br>
-                     <br>
-                     <br>
-                     <br>
-                     <br>
-                     <br>
-                     <br>
-                     <br>
-                     <br>
-                     <br>
+   
       <!-- /.content-wrapper -->
-      <footer class="main-footer fixed-bottom">
+      <footer class="main-footer">
         <strong
           >Copyright &copy; 2023
           <a href="https://instagram.com/bytedata_id">Bytedata_ID</a>.</strong
@@ -465,20 +342,16 @@ $albums = query("SELECT * FROM album");
     <script src="plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
     <!-- AdminLTE App -->
     <script src="dist/js/adminlte.js"></script>
-    <!-- AdminLTE for demo purposes -->
-    <!-- <script src="dist/js/demo.js"></script> -->
-    <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-    <!-- <script src="dist/js/pages/dashboard.js"></script> -->
-   
-<!-- my js -->
-<script src="../style/script.js"></script>
-    <!-- feather icon -->
-    <script>
-      feather.replace()
-    </script>
+    <!-- my js -->
+    <script src="../style/script.js"></script>
 
-    <script>
-
-    </script>
+    <!-- data table -->
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.4/js/dataTables.bootstrap5.min.js"></script>
+        <!-- feather icon -->
+        <script>
+          feather.replace()
+        </script>
   </body>
 </html>

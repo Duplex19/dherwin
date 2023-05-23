@@ -2,7 +2,7 @@
 
 require 'functions/functions.php';
 
-$albums = query("SELECT * FROM album ");
+$albums = query("SELECT * FROM album LIMIT 10 ");
 
 ?>
 
@@ -18,7 +18,6 @@ $albums = query("SELECT * FROM album ");
     <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
     <meta name="generator" content="Hugo 0.111.3">
     <title>My Gallery</title>   
-
 
 <link rel="stylesheet" href="assets/dist/css/bootstrap.min.css" >
     

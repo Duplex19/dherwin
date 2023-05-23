@@ -45,3 +45,7 @@ function delete_str(id) {
     }
   })
 }
+
+$(document).ready(function () {
+  $('#example').DataTable();
+});
